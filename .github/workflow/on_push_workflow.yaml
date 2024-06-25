@@ -1,8 +1,6 @@
 name : on_push_workflow
 
-on : 
-  push:
-    branches : [ master ]
+on : push
 
 jobs:
   deploy:
@@ -11,10 +9,12 @@ jobs:
       - name: Get Code
         uses: actions/checkout@v3
       - name: Install dependencies
-        run: npm install
+        run: npm ci
       - name: Lint
-        run: echo "Linting"
-      - name: Build
-        run: echo "Building"
-      - name: test
-        run: echo "Testing"
+        run: npm run lint
+      - name: Test Code
+        run: npm run test
+      - name: Build code
+        run: npm run build
+      - name: Deploy
+        run: echo "Deployed successfully"
