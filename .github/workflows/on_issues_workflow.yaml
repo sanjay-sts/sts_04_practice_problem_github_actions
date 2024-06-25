@@ -1,0 +1,13 @@
+name: Run on issues
+
+on: 
+    issues:
+        types: [opened, edited, milestoned]
+
+jobs:
+    issues:
+      runs-on: ubuntu-latest
+      steps:
+      - name: issues trigger
+        run: echo "issues triggered workflow"
+
