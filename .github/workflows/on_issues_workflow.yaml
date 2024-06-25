@@ -9,5 +9,5 @@ jobs:
       runs-on: ubuntu-latest
       steps:
       - name: issues trigger
-        run: echo "issues triggered workflow"
+        run: echo "${{toJson(github.event)}}"
 
